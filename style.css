@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+*{margin: 0; grid-row: unset; grid-row: unset;}
+
+body{font-family: "Kode Mono", monospace; 
+    padding: 2%  10%;
+    /* font-size: clamp(1.3rem, 1vw + 0.9rem, 3rem);  */
+}
+
+.header{
+    /* height: 50px; */
+    /* display: flex;
+    align-items: center; */
+    
+    background: #ececec;
+}
+
+/* Bloque Generalidades */
+.titulos-principales{
+    height: 50px;
+    background:#ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    /* background: rebeccapurple; */
+    color: black;
+    font-size: clamp(1.3rem, 1vw + 0.9rem, 3rem); 
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Seccion BANNER */
+.banner{
+    width: 100%;
+    height: 25vh;
+    background: url('img/banner-ppal-2.png') no-repeat center center/cover;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: gray; */
+}
+.texto-banner{
+    /* border-radius: 20px; */
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 75%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+.articulo{
+    font-size:  clamp(1rem, 1vw + 0.5rem, 2rem);
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Bloque PRINCIPAL */
+main{border: solid pink;}
+.seccion-encriptar{
+    background: palevioletred;
+    padding: 1rem;
+}
+.contenedor{
+    background-color:aquamarine ;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(max(300px, 30%), 1fr));
+
+    place-items: center;
+
+    gap: 10px;
+    padding: 10px;
+    
+}
+
+.texto-origen,
+.texto-destino{
+    /* display: flex;
+    flex-direction: column;
+    place-items:center;
+    justify-content:space-between;
+    background: rgba( 0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+    margin: 0 0 20px; */
+}
+
+.texto-origen{
+    background-color: cornflowerblue;
+    width: 100%;
+    
+}
+::placeholder{
+    color: gray;
+}
+.texto:focus{
+    outline: none; /**Le quita la entrada con borde animado cuando entramos con el curso al textarea*/
+}
+
+
+.texto-destino{
+    /* background-color: rgb(60, 86, 134); */
+    background-color: cornflowerblue;
+    width: 100%;
+}
+.texto{
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    
+}
+
+.contenedor-botones{
+    background-color: burlywood; 
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    
+    border-top: solid orange;
+    border-bottom: solid orange;
+}
+.botones{
+    text-align: center;
+    /* align-items: stretch; */
+    padding: .5rem;   
+}
+.linea-botones{
+    border-bottom: solid orange;
+}
+.boton{
+    width: 150px;
+    height: 50px;
+    
+}
+
+/* Seccion FOOTER */
+footer{
+    border: solid green;
+    height: 11em;
+    background: url('img/footer-fondo-6.jpg') no-repeat center center/cover; 
+}
+.seccion-footer{
+    display: grid;
+    gap: 1em; 
+    grid-template-columns: auto;
+}
+.footer-imagenes{
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    padding: 1em 0 0;
+}
+.seccion-footer img{width: 125px;}
+.footer-redes{grid-column: 1/-1;}
+.img-footer-alura{align-self: flex-end;}
+
+@media screen and (max-width: 426px){
+    body{
+        padding: 1em;
+    }
+}
+
+/* Para la relación de aspecto predeterminada de 16:9, codifica en las siguientes resoluciones:
+4320p (8K): 7680 × 4320.
+2160p (4K): 3840 × 2160.
+1440p (2K): 2560 × 1440.
+1080p (HD): 1920 × 1080.
+720p (HD): 1280 × 720.
+480 píxeles (SD): 854 × 480.
+360p (SD): 640 × 360.
+240p (SD): 426 × 240. */

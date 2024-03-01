@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <title>Encriptador</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="titulos-principales">
+                <h1 class="titulo">Desafio Encriptador</h1>
+            </div>
+            <!-- <img src="img/logo-one-4.png" alt="" class="cs-logo-menu1">
+            <nav id="id-menu" class="cs-menu">
+                <ul class="cs-menu-lista">
+                    <button id="id-cerrar-menu" class="cs-cerrar-menu"><i class="bi bi-x-lg"></i></button>
+                    <li><a href="http://jzapatahma.github.io/3-pagina-alura2/">Juego-Secreto</a></li> 
+                    <li><a href="http://jzapatahma.github.io/5-pagina-barberia-alura/">Barberia-Alura</a></li>
+                    <li><a href="">Encriptador</a></li>
+                </ul> 
+                <div class="cs-logo-menu">
+                    <img src="img/logo-one-4.png" alt="" class="cs-logo-menu2"> 
+                </div>                              
+            </nav>
+            <button id="id-abrir-menu" class="cs-abrir-menu"><i class="bi bi-list"></i></button> -->
+
+            <!-- otra forma de hacer la hamburguesa -->
+            <!-- <div>a href="#">&#8801;</a></div> -->
+        </header>
+
+
+
+        <main>
+            <section class="banner">
+                <div class="texto-banner">                    
+                    <article class="articulo">
+                        Para la ciberseguridad de nuestros tiempos es fundamental encriptar 
+                        la informacion transmitida al igual que la almacenada en las base de datos.
+                    </article>
+                </div>
+                <div class="imganes-banner">
+                </div>
+            </section>
+            <section class="seccion-encriptar">
+               
+                <form id="formulario">
+                    <!-- <img src="img/image-fondo-1.png" alt="" class="fondo-desafios"> -->
+                    <div class="titulos-principales">
+                        <h1 class="titulo">Encriptacion de texto</h1>
+                    </div>
+                    <div class="contenedor" >
+                        
+                            <div class="texto-origen">
+                                <h2 class="titulo">Texto Original</h2>
+                                <!-- placeholder="Ingrese aqui el texto a encriptar" -->
+                                <textarea required  type="text" name="texto-original"  class="texto txt-original" rows="10" ></textarea>                        
+                            </div>
+                            <div class="texto-destino">
+                                <h2 class="titulo">Texto Encriptado</h2>
+                                <!-- placeholder="Aqui se mostrara el texto codificado" -->
+                                <textarea readonly name="texto-destino" class="texto txt-destino" rows="10" ></textarea>
+                            </div>
+                    </div>
+                    <div class="contenedor-botones">
+                        <div class="subtitulo1">
+                            <h2 class="titulo">Procesar con Opcion Alura</h2>
+                        </div>
+                        <div class="botones">
+                            <label for=""></label>
+                            <input type="submit" class="boton-e boton" type="button" value="Encriptar" onclick="btnEncriptar()">
+                            <label for=""></label>
+                            <input type="submit" class="boton-d boton" type="button" value="Des-Encriptar" onclick="btnDesEncriptar()">
+                        </div>
+                        <span class="linea-botones"></span>
+                        <div class="subtitulo2">
+                            <h2 class="titulo">Procesar con Opcion AES</h2>
+                        </div>
+                        <div class="botones">
+                            <label for=""></label>
+                            <input type="submit" type="button" class="boton-e boton" value="Cifrar" onclick="btnEncriptar2()">
+                            <label for=""></label>
+                            <input type="submit" class="boton-d boton" value="Des-Cifrar" onclick="btnDesEncriptar2()">
+                            <button  class="contacto-enviar" onclick="btnEnviar()">Enviar</button>
+                        </div>                     
+                    </div>
+                </form>
+                
+            </section>
+            
+        </main>
+        
+        <footer>
+            <section class="seccion-footer">
+                <div class="footer-imagenes">
+                    <img src="img/logo-one-3-2.png" alt="" class="img-footer-one">
+                    <img src="img/logo-aluralatam-oracle-2.png" alt="" class="img-footer-alura">
+                </div>
+                <div class="footer-redes">
+                    <h3 style="color: #ffffff;">Siguenos en:</h3>
+                    <i class='bx bxl-facebook-circle bx-sm bx-burst-hover espacio' style='color:#ffffff'></i>
+                    <i class='bx bxl-instagram-alt bx-sm bx-burst-hover espacio' style='color:#ffffff'></i>
+                    <i class='bx bxl-youtube bx-sm bx-burst-hover espacio' style='color:#ffffff'></i>
+                    <i class='bx bxl-google-plus-circle bx-sm bx-burst-hover espacio' style='color:#ffffff' ></i>
+                </div>
+            </section>
+        </footer>
+        
+    </body>
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <!-- <script>
+        const formx= document.getElementById("formulario");
+        formx.addEventListener("submit", function(event) {
+                // event.preventDefault(
+                console.log(event);
+                alert("se detecto en evento");
+            }
+        )
+    </script> -->
+</html>
