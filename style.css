@@ -195,7 +195,8 @@ main{
 .cs-txt-destino{
     /* background: white; */
     /* background-image: url("/img/fondo-encriptado.png"); */
-    /* background: url('img/fondo-encriptado.png') no-repeat center center/cover;  */
+    background: url('img/fondo-encriptado.png') no-repeat center center/cover;
+    background-size: contain; 
     background-repeat: no-repeat;
     /* border: none;
     color: #0A3871; */
