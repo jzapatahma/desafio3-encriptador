@@ -7,92 +7,71 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <title>Encriptador</title>
+        <title>Encriptador de texto</title>
+        <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.3/dist/clipboard.min.js"></script>
     </head>
     <body>
-        <header class="header">
-            <div class="titulos-principales">
-                <h1 class="titulo">Desafio Encriptador</h1>
+        <header class="cs-header">
+            <div class="cs-titulo-principal">
+                <h1 class="cs-titulo">Desafio Encriptador</h1>
             </div>
-            <!-- <img src="img/logo-one-4.png" alt="" class="cs-logo-menu1">
-            <nav id="id-menu" class="cs-menu">
-                <ul class="cs-menu-lista">
-                    <button id="id-cerrar-menu" class="cs-cerrar-menu"><i class="bi bi-x-lg"></i></button>
-                    <li><a href="http://jzapatahma.github.io/3-pagina-alura2/">Juego-Secreto</a></li> 
-                    <li><a href="http://jzapatahma.github.io/5-pagina-barberia-alura/">Barberia-Alura</a></li>
-                    <li><a href="">Encriptador</a></li>
-                </ul> 
-                <div class="cs-logo-menu">
-                    <img src="img/logo-one-4.png" alt="" class="cs-logo-menu2"> 
-                </div>                              
-            </nav>
-            <button id="id-abrir-menu" class="cs-abrir-menu"><i class="bi bi-list"></i></button> -->
-
-            <!-- otra forma de hacer la hamburguesa -->
-            <!-- <div>a href="#">&#8801;</a></div> -->
         </header>
-
-
-
         <main>
-            <section class="banner">
-                <div class="texto-banner">                    
-                    <article class="articulo">
+            <section class="cs-banner">
+                <div class="cs-txt-banner">
+                    <article class="cs-art-banner">
                         Para la ciberseguridad de nuestros tiempos es fundamental encriptar 
                         la informacion transmitida al igual que la almacenada en las base de datos.
                     </article>
                 </div>
-                <div class="imganes-banner">
+                <div class="img-banner">
                 </div>
             </section>
-            <section class="seccion-encriptar">
-               
-                <form id="formulario">
+            <section class="cs-seccion-encriptar">
+                <div class="cs-titulo-principal">
+                    <img src="/img/logo-alura.png" alt="Logo Alura" class="cs-logo-alura">
+                    <h1 class="cs-titulo">Encriptacion de texto</h1>
+                </div>
+                <form id="id-formulario" class="cs-formulario">
                     <!-- <img src="img/image-fondo-1.png" alt="" class="fondo-desafios"> -->
-                    <div class="titulos-principales">
-                        <h1 class="titulo">Encriptacion de texto</h1>
-                    </div>
-                    <div class="contenedor" >
-                        
-                            <div class="texto-origen">
-                                <h2 class="titulo">Texto Original</h2>
-                                <!-- placeholder="Ingrese aqui el texto a encriptar" -->
-                                <textarea required  type="text" name="texto-original"  class="texto txt-original" rows="10" ></textarea>                        
+                    <div class="cs-contenedor-1" >
+                        <div>
+                            <h2 class="cs-subtitulo">Texto Original</h2>
+                            <textarea required  type="text" class="cs-texto cs-txt-original" rows="15" placeholder="Aquí su texto a encriptar"></textarea>
+                        </div>
+                        <!-- <span class="linea-botones"></span> -->
+                        <div class="cs-opciones">
+                            <h2 class="informacion">Elige tu opción de encriptación</h2>
+                            <div class="op-div">
+                                <input name="radio-boton" type="radio" id="op-Alura" class="op1-alu" onclick= "opcionEncriptar('Alura', false)" />
+                                <label class="op1-alul" for="op-Alura" >Opcion Alura</label>
                             </div>
-                            <div class="texto-destino">
-                                <h2 class="titulo">Texto Encriptado</h2>
-                                <!-- placeholder="Aqui se mostrara el texto codificado" -->
-                                <textarea readonly name="texto-destino" class="texto txt-destino" rows="10" ></textarea>
+                            <input type="submit" class="cs-boton-1 cs-boton" type="button" value="Encriptar"  onclick="btnEncriptar()">
+                            <input type="submit" class="cs-boton-2 cs-boton" type="button" value="Des-Encriptar" onclick="btnDesEncriptar()">
+                        </div>
+                        <!-- <span class="linea-botones"></span> -->
+                        <div class="cs-opciones">
+                            <div class="op-div">
+                                <input name="radio-boton" type="radio" id="op-Alura" class="op1-alu" onclick= "opcionEncriptar('AES', false)"/>
+                                <label class="op1-alul" for="op-Alura" >Opcion AES</label>
                             </div>
+                            <!-- <h2 class="subtitulo">Opcion AES</h2> -->
+                            <input type="submit" class="cs-boton-3 cs-boton" value="Cifrar" onclick="btnEncriptar2()">
+                            <input type="submit" class="cs-boton-4 cs-boton" value="Des-Cifrar" onclick="btnDesEncriptar2()">
+                        </div>
+                        <!-- <span class="linea-botones"></span> -->
+                        <!--  -->
                     </div>
-                    <div class="contenedor-botones">
-                        <div class="subtitulo1">
-                            <h2 class="titulo">Procesar con Opcion Alura</h2>
+                    <div class="cs-contenedor-2">
+                        <div>
+                            <h2 class="cs-subtitulo">Texto Encriptado</h2>
+                            <textarea id="foo" class="cs-texto cs-txt-destino" rows="22" placeholder="Aquí su texto encriptado"></textarea>
+                            <input type="submit" class="cs-boton-5 cs-boton" value="Copiar" data-clipboard-target="#foo">
                         </div>
-                        <div class="botones">
-                            <label for=""></label>
-                            <input type="submit" class="boton-e boton" type="button" value="Encriptar" onclick="btnEncriptar()">
-                            <label for=""></label>
-                            <input type="submit" class="boton-d boton" type="button" value="Des-Encriptar" onclick="btnDesEncriptar()">
-                        </div>
-                        <span class="linea-botones"></span>
-                        <div class="subtitulo2">
-                            <h2 class="titulo">Procesar con Opcion AES</h2>
-                        </div>
-                        <div class="botones">
-                            <label for=""></label>
-                            <input type="submit" type="button" class="boton-e boton" value="Cifrar" onclick="btnEncriptar2()">
-                            <label for=""></label>
-                            <input type="submit" class="boton-d boton" value="Des-Cifrar" onclick="btnDesEncriptar2()">
-                            <button  class="contacto-enviar" onclick="btnEnviar()">Enviar</button>
-                        </div>                     
                     </div>
-                </form>
-                
+                </form>                
             </section>
-            
         </main>
-        
         <footer>
             <section class="seccion-footer">
                 <div class="footer-imagenes">
@@ -108,17 +87,7 @@
                 </div>
             </section>
         </footer>
-        
     </body>
     <script src="app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <!-- <script>
-        const formx= document.getElementById("formulario");
-        formx.addEventListener("submit", function(event) {
-                // event.preventDefault(
-                console.log(event);
-                alert("se detecto en evento");
-            }
-        )
-    </script> -->
 </html>

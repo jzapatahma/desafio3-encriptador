@@ -1,21 +1,53 @@
-// Function(getComputedStyle(document.documentElement)?.getPropertyValue("--script"))();
 
-// Variables que contendran el elementos econtrado en el documento segun su nombre de clase
-const textoOrigen = document.querySelector(".txt-original");
-const textoDestino = document.querySelector(".txt-destino");
-// Matriz de ejemplo para una encriptacion personalizada y creativa del programador
+// Variables que contendran los elementos econtrados en el documento segun su nombre de clase
+const textoOrigen = document.querySelector(".cs-txt-original");
+const textoDestino = document.querySelector(".cs-txt-destino");
+const boton1 = document.querySelector(".cs-boton-1");
+const boton2 = document.querySelector(".cs-boton-2");
+const boton3 = document.querySelector(".cs-boton-3");
+const boton4 = document.querySelector(".cs-boton-4");
+const boton5 = document.querySelector(".cs-boton-5");
+// Deshabilitamos de entrada los botones de desencriptar
+// Carga los botones deshabilitados al iniciar la pagina
+boton1.disabled = true;
+boton2.disabled = true;
+boton3.disabled = true;
+boton4.disabled = true;
+// Variable para simplificar una funcion para varios procesos, creo que se puede mejorar.
+var estado = new Boolean(true);
+
+function opcionEncriptar(opcion, estado){
+    var b = Boolean(estado);
+    if (opcion == "Alura"){
+        boton1.disabled = b;
+        boton2.disabled = b;
+        boton3.disabled = true;
+        boton4.disabled = true;
+    }
+    if (opcion == "AES"){
+        boton3.disabled = b;
+        boton4.disabled = b;
+        boton1.disabled = true;
+        boton2.disabled = true;
+    }
+    textoOrigen.value = "";
+    textoDestino.value = "";
+}
+// Asigna a la variable el tipo de funcion que se quiere para el boton copiar.
+var clipboard = new Clipboard('.cs-boton-5');
+// Matriz de ejemplo para una encriptacion personalizada segun lo explicado en Alura
 let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"],];
 // 
-//Metodo Encriptacion Alura Desafio
+//METODO ENCRIPTACION ALURA
 // ENCRIPTAR
 function btnEncriptar(){
     if(textoOrigen.validity.valid){
         const proceso = encriptar(textoOrigen.value);
-        textoDestino.value = proceso;
-        textoOrigen.value = "";
+        textoDestino.value = proceso.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //Elimina los acentos
+        textoDestino.style.backgroundImage = "none";
     }
 }
-function encriptar(strProceso){
+function encriptar(strProceso){ //Recorre la matriz de las letras para reemplazar las letras por un conjunto de palabras.
     let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"],];
     strProceso = strProceso.toLowerCase();
     for(let i=0;i<matrizCodigo.length; i++){
@@ -28,12 +60,11 @@ function encriptar(strProceso){
 // DES-ENCRIPTAR
 function btnDesEncriptar(){
     if(textoDestino.validity.valid){
-        const proceso = desencriptar(textoDestino.value);
-        textoOrigen.value = proceso;
-        textoDestino.value = "";
+        const proceso = desencriptar(textoOrigen.value);
+        textoDestino.value = proceso;
     }
 }
-function desencriptar(strProceso){
+function desencriptar(strProceso){ //Recorre la matriz de las letras para reemplazar un conjunto de palabras por una letra.
     let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"],];
     strProceso = strProceso.toLowerCase();
     for(let i=0;i<matrizCodigo.length; i++){
@@ -43,16 +74,6 @@ function desencriptar(strProceso){
     }
     return strProceso;
 }
-
-// Metodo Encriptacion AES
-// const crypto = required("crypto-js");
-// var decrypted = encriptarCjs.AES.decrypt(encrypted, 'EncryptionKey');
-// https://codepen.io/gabrielizalo/pen/oLzaqx
-// En la anterior pagina explican muy bien como hacerlo con las linesa de codigo
-// Estamos usando una API externar que es:
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-// Tambien hay otras formas en la siguiente pagina:
-// https://unipython.com/encriptar-datos-en-java-script/
 //
 // ENCRIPTAR AES
 function encriptarAES(strProceso){
@@ -61,11 +82,7 @@ function encriptarAES(strProceso){
 }
 function btnEncriptar2(){
     if(textoOrigen.validity.valid){
-        // alert("validando  True");
         textoDestino.value =  encriptarAES(textoOrigen.value);
-        textoOrigen.value = "";
-    }else{
-        alert("pxx ddddddd validando false");
     }
 }
 // DES-ENCRIPTAR AES
@@ -76,38 +93,14 @@ function desencriptarAES(strProceso){
 function btnDesEncriptar2(){
     if(textoDestino.validity.valid){
         strProceso =  desencriptarAES(textoDestino.value);
-        textoOrigen.value = strProceso.toString(CryptoJS.enc.Utf8);
-        textoDestino.value = "";
+        textoDestino.value = strProceso.toString(CryptoJS.enc.Utf8);
     }
-    
-    
-    
-    // if(textoOrigen.validity.valid){// alert("validando  True");
-    //     strProceso =  desencriptarAES(textoDestino.value);
-    //     textoOrigen.value = strProceso.toString(CryptoJS.enc.Utf8);
-    // }else{
-    //     alert("pxx  validando false");
-    // }
 }
-
-//CAPTURAR EL ENVIO DEL FORMULARIO Y LA ACTUALIZACION DE LA PAGINA.
+//
+//CAPTURAR EL ENVIO DEL FORMULARIO.
 //Con esto se evita que el sutmit del input o del button refresque la pagina y borre lo contenido en sus elementos
-const formx= document.getElementById("formulario");
+const formx= document.getElementById("id-formulario");
 formx.addEventListener("submit", function(event) {
         event.preventDefault();
-        // console.log(event);
-        // alert("se detecto en evento sdafasdfaf");
     }
 )
-
-// El siguiente codigo funciona muy bien con la siguiente linea en HTML
-// <button type="submit" class="contacto-enviar" onclick="btnEnviar()">Enviar</button>
-// const textoEnviar = document.querySelector(".contacto-enviar");
-// function btnEnviar(){
-//     if(textoOrigen.validity.valid){// alert("validando  True");
-//         strProceso =  desencriptarAES(textoDestino.value);
-//         textoOrigen.value = strProceso.toString(CryptoJS.enc.Utf8);
-//     }else{
-//         alert("btn enviar validando false");
-//     }
-// }
