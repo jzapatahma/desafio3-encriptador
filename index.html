@@ -35,16 +35,16 @@
                 <form id="id-formulario" class="cs-formulario">
                     <!-- <img src="img/image-fondo-1.png" alt="" class="fondo-desafios"> -->
                     <div class="cs-contenedor-1" >
-                        <div>
+                        <div class="cs-contenedor-textos">
                             <h2 class="cs-subtitulo">Texto Original</h2>
-                            <textarea required  type="text" class="cs-texto cs-txt-original" rows="15" placeholder="Aquí su texto a encriptar"></textarea>
+                            <textarea required  type="text" class="cs-texto cs-txt-original" rows="10" placeholder="Aquí su texto a encriptar"></textarea>
                         </div>
                         <!-- <span class="linea-botones"></span> -->
                         <div class="cs-opciones">
                             <h2 class="informacion">Elige tu opción de encriptación</h2>
                             <div class="op-div">
-                                <input name="radio-boton" type="radio" id="op-Alura" class="op1-alu" onclick= "opcionEncriptar('Alura', false)" />
-                                <label class="op1-alul" for="op-Alura" >Opcion Alura</label>
+                                <input name="radio-boton" type="radio" id="id-opAlura" class="cs-opAlura" onclick= "opcionEncriptar('Alura', false)" />
+                                <label for="id-opAlura" >Opcion Alura</label>
                             </div>
                             <input type="submit" class="cs-boton-1 cs-boton" type="button" value="Encriptar"  onclick="btnEncriptar()">
                             <input type="submit" class="cs-boton-2 cs-boton" type="button" value="Des-Encriptar" onclick="btnDesEncriptar()">
@@ -52,8 +52,8 @@
                         <!-- <span class="linea-botones"></span> -->
                         <div class="cs-opciones">
                             <div class="op-div">
-                                <input name="radio-boton" type="radio" id="op-Alura" class="op1-alu" onclick= "opcionEncriptar('AES', false)"/>
-                                <label class="op1-alul" for="op-Alura" >Opcion AES</label>
+                                <input name="radio-boton" type="radio" id="id-opAES" class="cs-opAlura" onclick= "opcionEncriptar('AES', false)"/>
+                                <label for="id-opAES" >Opcion AES</label>
                             </div>
                             <!-- <h2 class="subtitulo">Opcion AES</h2> -->
                             <input type="submit" class="cs-boton-3 cs-boton" value="Cifrar" onclick="btnEncriptar2()">
@@ -63,10 +63,11 @@
                         <!--  -->
                     </div>
                     <div class="cs-contenedor-2">
-                        <div>
+                        <div class="cs-contenedor-textos">
                             <h2 class="cs-subtitulo">Texto Encriptado</h2>
-                            <textarea id="foo" class="cs-texto cs-txt-destino" rows="22" placeholder="Aquí su texto encriptado"></textarea>
-                            <input type="submit" class="cs-boton-5 cs-boton" value="Copiar" data-clipboard-target="#foo">
+                            <textarea type="text" id="foo" class="cs-texto cs-txt-destino" rows="20" placeholder="Aquí su texto encriptado"></textarea>
+                            <!-- <textarea type="text" class="cs-texto cs-txt-original" rows="15" placeholder="Aquí su texto a encriptar"></textarea> -->
+                            <input type="submit" class="cs-boton-5 cs-boton" value="Copiar" data-clipboard-target="#foo">    
                         </div>
                     </div>
                 </form>                
