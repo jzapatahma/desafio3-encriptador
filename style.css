@@ -222,8 +222,23 @@ footer{
     padding: 1em 0 0;
 }
 .seccion-footer img{width: 125px;}
-.footer-redes{grid-column: 1/-1;}
+.footer-redes{
+    /* grid-column: 1/-1; */
+    display: flex;
+    justify-content: space-between;
+    align-items:end;
+}
 .img-footer-alura{align-self: flex-end;}
+
+.footer-derechos{
+    display: flex;
+    place-self: center;
+}
+.copyright{
+    color:#FFFFFF;
+    display: flex;
+    font-size: clamp(.5rem, 1vw + .5rem, 2rem);
+}
 
 .informacion{
     color:#495057;
@@ -233,6 +248,10 @@ footer{
     height: 1.5em;
     /* background: gray; */
 }
+
+
+
+
 
 @media screen and (max-width: 426px){
     body{
