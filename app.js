@@ -1,12 +1,12 @@
 
 // Variables que contendran los elementos econtrados en el documento segun su nombre de clase
-const textoOrigen = document.querySelector(".cs-txt-original");
-const textoDestino = document.querySelector(".cs-txt-destino");
-const boton1 = document.querySelector(".cs-boton-1");
-const boton2 = document.querySelector(".cs-boton-2");
-const boton3 = document.querySelector(".cs-boton-3");
-const boton4 = document.querySelector(".cs-boton-4");
-const boton5 = document.querySelector(".cs-boton-5");
+const textoOrigen = document.querySelector("#id-txt-original");
+const textoDestino = document.querySelector("#id-txt-destino");
+const boton1 = document.querySelector("#id-boton-1");
+const boton2 = document.querySelector("#id-boton-2");
+const boton3 = document.querySelector("#id-boton-3");
+const boton4 = document.querySelector("#id-boton-4");
+const boton5 = document.querySelector("#id-boton-5");
 // Deshabilitamos de entrada los botones de desencriptar
 // Carga los botones deshabilitados al iniciar la pagina
 boton1.disabled = true;
@@ -30,13 +30,13 @@ function opcionEncriptar(opcion, estado){
         boton1.disabled = true;
         boton2.disabled = true;
     }
-    textoOrigen.value = "";
-    textoDestino.value = "";
+    // textoOrigen.value = "";
+    // textoDestino.value = "";
 }
 // Asigna a la variable el tipo de funcion que se quiere para el boton copiar.
-var clipboard = new Clipboard('.cs-boton-5');
+var clipboard = new Clipboard('#id-boton-5');
 // Matriz de ejemplo para una encriptacion personalizada segun lo explicado en Alura
-let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"],];
+let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
 // 
 //METODO ENCRIPTACION ALURA
 // ENCRIPTAR
@@ -48,7 +48,7 @@ function btnEncriptar(){
     }
 }
 function encriptar(strProceso){ //Recorre la matriz de las letras para reemplazar las letras por un conjunto de palabras.
-    let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"],];
+    let matrizCodigo =  [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
     strProceso = strProceso.toLowerCase();
     for(let i=0;i<matrizCodigo.length; i++){
         if(strProceso.includes(matrizCodigo[i][0])){
@@ -65,7 +65,7 @@ function btnDesEncriptar(){
     }
 }
 function desencriptar(strProceso){ //Recorre la matriz de las letras para reemplazar un conjunto de palabras por una letra.
-    let matrizCodigo = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"],];
+    let matrizCodigo = [["i","imes"],["a","ai"],["o","ober"],["u","ufat"],["e","enter"]];
     strProceso = strProceso.toLowerCase();
     for(let i=0;i<matrizCodigo.length; i++){
         if(strProceso.includes(matrizCodigo[i][1])){
@@ -99,7 +99,7 @@ function btnDesEncriptar2(){
 //
 //CAPTURAR EL ENVIO DEL FORMULARIO.
 //Con esto se evita que el sutmit del input o del button refresque la pagina y borre lo contenido en sus elementos
-const formx= document.getElementById("id-formulario");
+const formx= document.getElementById('id-formulario');
 formx.addEventListener("submit", function(event) {
         event.preventDefault();
     }

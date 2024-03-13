@@ -7,8 +7,9 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <title>Encriptador de texto</title>
         <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.3/dist/clipboard.min.js"></script>
+        <script src="https://kit.fontawesome.com/eb496ab1a0.js"></script>
+        <title>Encriptador de texto</title>
     </head>
     <body>
         <header class="cs-header">
@@ -32,42 +33,35 @@
                     <img src="img/logo-alura.png" alt="Logo Alura" class="cs-logo-alura">
                     <h1 class="cs-titulo">Encriptacion de texto</h1>
                 </div>
-                <form id="id-formulario" class="cs-formulario">
-                    <!-- <img src="img/image-fondo-1.png" alt="" class="fondo-desafios"> -->
+                <form id="id-formulario" class="cs-formulario">                    
                     <div class="cs-contenedor-1" >
                         <div class="cs-contenedor-textos">
                             <h2 class="cs-subtitulo">Texto Original</h2>
-                            <textarea required  type="text" class="cs-texto cs-txt-original" rows="10" placeholder="Aquí su texto a encriptar"></textarea>
-                        </div>
-                        <!-- <span class="linea-botones"></span> -->
+                            <textarea required  type="text" id="id-txt-original" class="cs-texto cs-txt-original" rows="10" placeholder="Aquí su texto a encriptar"></textarea>
+                        </div>                
                         <div class="cs-opciones">
                             <h2 class="informacion">Elige tu opción de encriptación</h2>
                             <div class="op-div">
                                 <input name="radio-boton" type="radio" id="id-opAlura" class="cs-opAlura" onclick= "opcionEncriptar('Alura', false)" />
                                 <label for="id-opAlura" >Opcion Alura</label>
                             </div>
-                            <input type="submit" class="cs-boton-1 cs-boton" type="button" value="Encriptar"  onclick="btnEncriptar()">
-                            <input type="submit" class="cs-boton-2 cs-boton" type="button" value="Des-Encriptar" onclick="btnDesEncriptar()">
-                        </div>
-                        <!-- <span class="linea-botones"></span> -->
+                            <input type="submit" id="id-boton-1" class="cs-boton-1 cs-boton" type="button" value="Encriptar"  onclick="btnEncriptar()">
+                            <input type="submit" id="id-boton-2" class="cs-boton-2 cs-boton" type="button" value="Des-Encriptar" onclick="btnDesEncriptar()">
+                        </div>                
                         <div class="cs-opciones">
                             <div class="op-div">
                                 <input name="radio-boton" type="radio" id="id-opAES" class="cs-opAlura" onclick= "opcionEncriptar('AES', false)"/>
                                 <label for="id-opAES" >Opcion AES</label>
-                            </div>
-                            <!-- <h2 class="subtitulo">Opcion AES</h2> -->
-                            <input type="submit" class="cs-boton-3 cs-boton" value="Cifrar" onclick="btnEncriptar2()">
-                            <input type="submit" class="cs-boton-4 cs-boton" value="Des-Cifrar" onclick="btnDesEncriptar2()">
-                        </div>
-                        <!-- <span class="linea-botones"></span> -->
-                        <!--  -->
+                            </div>                            
+                            <input type="submit" id="id-boton-3" class="cs-boton-3 cs-boton" value="Cifrar" onclick="btnEncriptar2()">
+                            <input type="submit" id="id-boton-4" class="cs-boton-4 cs-boton" value="Des-Cifrar" onclick="btnDesEncriptar2()">
+                        </div>                       
                     </div>
                     <div class="cs-contenedor-2">
                         <div class="cs-contenedor-textos">
                             <h2 class="cs-subtitulo">Texto Encriptado</h2>
-                            <textarea type="text" id="foo" class="cs-texto cs-txt-destino" rows="20" placeholder="Aquí su texto encriptado"></textarea>
-                            <!-- <textarea type="text" class="cs-texto cs-txt-original" rows="15" placeholder="Aquí su texto a encriptar"></textarea> -->
-                            <input type="submit" class="cs-boton-5 cs-boton" value="Copiar" data-clipboard-target="#foo">    
+                            <textarea type="text" id="id-txt-destino" class="cs-texto cs-txt-destino" rows="20" placeholder="Aquí su texto encriptado"></textarea>                            
+                            <input type="submit" id="id-boton-5" class="cs-boton-5 cs-boton" value="Copiar" data-clipboard-target="#id-txt-destino">
                         </div>
                     </div>
                 </form>                
@@ -93,6 +87,35 @@
                 </div>
             </section>
         </footer>
+        <section class="informacion">
+            <input type="checkbox" id="id-btn-info">
+            <div class="cs-informacion-contenedor">           
+                <div class="cs-informacion-texto">
+                    <h1 class="cs-informacion-titulo">Bienvenido(a)</h1>
+                    <h2 class="cs-informacion-subtitulo">Información importante a tener en cuenta:</h2>
+                    <p>
+                        En la primera caja de “Texto Original” ingrese el texto a encriptar y luego elija una de las dos opciones de encriptación siguiente: 
+                    </p>
+                    <h2 class="cs-informacion-subtitulo">Método ALURA:</h2>
+                    <p>
+                        Permite ingresar cualquier texto a encriptar, sin embargo el sistema antes de procesar la información retira del texto ingresado, los acentos y convertirá las letras mayúsculas en minúsculas.
+                    </p>
+                    <h2 class="cs-informacion-subtitulo">Método AES:</h2>
+                    <p>
+                        Advanced Encryption Standard por sus siglas en inglés, este método permite la encriptación o cifrado de la información tal cual como lo ingrese el usuario.
+                    </p> 
+                    <h2 class="cs-informacion-subtitulo">Proceso:</h2>
+                    <p>
+                        Use el botón encriptar o cifrar para procesar la información, si lo desea puede usar el botón copiar y luego pegar en la caja “Texto Orignal” y usar el botón des-encriptar o des-cifrar para revertir el proceso y leer su mensaje original.    
+                    </p>
+                    <label for="id-btn-info" class="cs-btn-cerrar">X</label>
+                </div>            
+            </div>
+            <div class="cs-boton-abrir">
+                <!-- <label for="id-btn-info" class="fa fa-info-circle fa-lg"></label> -->
+                <label for="id-btn-info" class="fa fa-info-circle fa-lg"></label>
+            </div>
+        </section>                 
     </body>
     <script src="app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
